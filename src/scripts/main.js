@@ -4,9 +4,13 @@ const populations = Array.from(document.querySelectorAll('.population'));
 
 let total = 0;
 
-populations.forEach(
-  (population) => (total += Number(population.textContent.split(',').join(''))),
-);
+populations.forEach((population) => {
+  const value = population.textContent.split(',').join('');
+
+  if (!isNaN(value)) {
+    total += Number(value);
+  }
+});
 
 const average = Math.round(total / populations.length);
 
