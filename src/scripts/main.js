@@ -1,3 +1,17 @@
 'use strict';
 
-// write your code here
+const populations = Array.from(document.querySelectorAll('.population'));
+
+let total = 0;
+
+populations.forEach(
+  (population) => (total += Number(population.textContent.split(',').join(''))),
+);
+
+const average = Math.round(total / populations.length);
+
+const averageElement = document.querySelector('.average-population');
+const totalElement = document.querySelector('.total-population');
+
+averageElement.textContent = average.toLocaleString();
+totalElement.textContent = total.toLocaleString();
